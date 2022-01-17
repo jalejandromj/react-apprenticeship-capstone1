@@ -40,6 +40,10 @@ body {
   padding: 0.4rem;
 }
 
+figure{
+  margin: 0 0 0rem;
+}
+
 a {
   text-decoration: none;
   font-weight: bold;
@@ -48,4 +52,18 @@ a {
 
 a:active {
   color: blueviolet;
+}
+
+:root {
+  --wine: #8C0034;
+  --discreet-white: 255, 245, 247;
+  --dark-blue: 47, 70, 102;
+  --light-purple: #623268;
+  --dark-purple: #443F6D;
+  --indigo-blue: 18, 166, 154;
+}
+
+.section{
+  height: 100%;
+  width: 100%;
 }
