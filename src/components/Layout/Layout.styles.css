@@ -11,7 +11,7 @@
   /*margin-top: -3rem;*/
 }
 
-#layout{
+#layout {
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -22,78 +22,79 @@
   -ms-grid-rows: 7% auto;
 }
 
-#layout.sidebar_hidden{
+#layout.sidebar_hidden {
   grid-template-columns: 100%;
   -ms-grid-columns: 100%;
   grid-template-areas:
-    "header"
-    "container";
+    'header'
+    'container';
 }
 
-#layout.sidebar_display{
+#layout.sidebar_display {
   grid-template-columns: 15% auto;
-  -ms-grid-columns:15% auto;
+  -ms-grid-columns: 15% auto;
   grid-template-areas:
-    "header header"
-    "sidebar container";
+    'header header'
+    'sidebar container';
 }
 
-#header{
+#header {
   grid-area: header;
   background-color: rgba(var(--dark-blue));
   color: rgba(var(--discreet-white));
-  -webkit-box-shadow: 0px 9px 5px 0px rgba(0,0,0,0.55);
-  -moz-box-shadow: 0px 9px 5px 0px rgba(0,0,0,0.55);
-  box-shadow: 0px 9px 5px 0px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 9px 5px 0px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 0px 9px 5px 0px rgba(0, 0, 0, 0.55);
+  box-shadow: 0px 9px 5px 0px rgba(0, 0, 0, 0.55);
 }
 
-#header>div{
+#header > div {
   position: relative;
   top: 15%;
   height: 70%;
 }
 
-#header>div>div.row, #header>div>div>div{
+#header > div > div.row,
+#header > div > div > div {
   display: flex;
   height: 100%;
 }
 
-.menu_svg{
+.menu_svg {
   cursor: pointer;
   fill: rgba(var(--discreet-white));
 }
 
-#sidebar{
+#sidebar {
   grid-area: sidebar;
   background-color: rgba(var(--dark-blue), 0.7);
   color: rgba(var(--discreet-white));
   padding: 10% 2%;
 }
 
-.sidebar_col{
+.sidebar_col {
   margin: 10px 0px;
 }
 
-.sidebar_btn{
+.sidebar_btn {
   position: relative;
   width: 100%;
   text-align: left;
   background: transparent;
   border-style: none;
-  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.55);
-  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.55);
   color: rgba(var(--discreet-white));
   padding: 7% 10%;
   transition: ease-out 0.2s;
 }
 
-.sidebar_btn:hover{
+.sidebar_btn:hover {
   bottom: 3px;
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.55);
-  -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.55);
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.55);
 }
 
-.sidebar_btn:active{
+.sidebar_btn:active {
   background-color: rgba(var(--discreet-white));
   color: rgba(var(--dark-blue));
 }

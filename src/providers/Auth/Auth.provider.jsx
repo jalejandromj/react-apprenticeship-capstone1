@@ -16,7 +16,7 @@ function useAuth() {
 // eslint-disable-next-line react/prop-types
 function AuthProvider({ children }) {
   const lastAuthState = storage.get(AUTH_STORAGE_KEY);
-  const [authenticated, setAuthenticated] = useState(lastAuthState);//it was set to false before
+  const [authenticated, setAuthenticated] = useState(lastAuthState); //it was set to false before
 
   useEffect(() => {
     const lastAuthState = storage.get(AUTH_STORAGE_KEY);

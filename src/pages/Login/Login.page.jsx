@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 import { useAuth } from '../../providers/Auth';
@@ -13,17 +13,17 @@ function LoginPage() {
   async function authenticate(event) {
     event.preventDefault();
     await loginApi(event.target.username.value, event.target.password.value)
-    .then(function (response) {
-      // handle success
-      console.log("[SUCCESS] Logged in...", response);
-      login();
-      history.push('/');
-    })
-    .catch(function (error) {
-      // handle error
-      console.log("[ERROR] Failed to log in...", error);
-      setErrorLogIn(true);
-    });
+      .then(function (response) {
+        // handle success
+        console.log('[SUCCESS] Logged in...', response);
+        login();
+        history.push('/');
+      })
+      .catch(function (error) {
+        // handle error
+        console.log('[ERROR] Failed to log in...', error);
+        setErrorLogIn(true);
+      });
 
     //history.push('/secret'); Funny RickRoll, huh...
   }
@@ -44,11 +44,13 @@ function LoginPage() {
             <input required type="password" id="password" />
           </label>
         </div>
-        {errorLogIn ?
-          <div><p style={{color: "red"}}>Failed to log in. Please check your credentials.</p></div>
-        :
-          null
-        }
+        {errorLogIn ? (
+          <div>
+            <p style={{ color: 'red' }}>
+              Failed to log in. Please check your credentials.
+            </p>
+          </div>
+        ) : null}
         <button type="submit">login</button>
       </form>
     </section>

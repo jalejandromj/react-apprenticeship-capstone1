@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import Home from './Home.page.jsx';
 
-it("renders without crashing", () => {
-	const div = document.createElement("div");
-	ReactDOM.render(<Home/>, div)
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Home />, div);
 });
 
 /*it("renders VideoCard correctly", () => {

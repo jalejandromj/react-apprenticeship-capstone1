@@ -43,29 +43,43 @@ function App() {
   return (
     <BrowserRouter data-testid="app">
       <AuthProvider>
-        <UserContext.Provider value={{name: userContextVal.name, search: search, setSearch: setSearch}}>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/watch-video/:videoId">
-              <WatchVideoPage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <PrivateRoute component={FavouritesPage} path="/favourites" exact />
-            <PrivateRoute component={WatchFavouritePage} path="/favourites/watch-video/:videoId" exact />
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-          <Fortune />
-        </Layout>
+        <UserContext.Provider
+          value={{
+            name: userContextVal.name,
+            search: search,
+            setSearch: setSearch,
+          }}
+        >
+          <Layout>
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/watch-video/:videoId">
+                <WatchVideoPage />
+              </Route>
+              <Route exact path="/login">
+                <LoginPage />
+              </Route>
+              <PrivateRoute
+                component={FavouritesPage}
+                path="/favourites"
+                exact
+              />
+              <PrivateRoute
+                component={WatchFavouritePage}
+                path="/favourites/watch-video/:videoId"
+                exact
+              />
+              <Private exact path="/secret">
+                <SecretPage />
+              </Private>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+            <Fortune />
+          </Layout>
         </UserContext.Provider>
       </AuthProvider>
     </BrowserRouter>
