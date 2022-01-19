@@ -71,8 +71,7 @@ function HomePage() {
             <h4
               className={userContextVal.theme ? 'blue_theme' : 'discreet_theme'}
             >
-              Welcome and wonderful {day}! Enjoy your &quot;{userContextVal.search}&quot;
-              videos...
+              Welcome and wonderful {day}! Enjoy your &quot;{userContextVal.search}&quot; videos...
             </h4>
           </Col>
         </Row>
