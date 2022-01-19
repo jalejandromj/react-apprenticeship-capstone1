@@ -53,7 +53,9 @@ a:active {
   color: blueviolet;
 }
 
-h2.discreet_theme, h4.discreet_theme, p.discreet_theme{
+h2.discreet_theme,
+h4.discreet_theme,
+p.discreet_theme {
   color: rgba(var(--discreet-white));
 }
 

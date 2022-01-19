@@ -29,12 +29,20 @@ function HomePage() {
   const day = weekday[date.getDay()];
 
   //GET real videos from YT API
-  const params = {maxResults: 8, part: 'snippet', type: 'video', q: userContextVal.search}
-  const { response } = useYoutubeApi('https://www.xgoogleapis.com/youtube/v3/search', params);
+  const params = {
+    maxResults: 8,
+    part: 'snippet',
+    type: 'video',
+    q: userContextVal.search,
+  };
+  const { response } = useYoutubeApi(
+    'https://www.xgoogleapis.com/youtube/v3/search',
+    params
+  );
   const [videos, setVideos] = useState(null);
 
   useEffect(() => {
-    if(response){
+    if (response) {
       setVideos(response.data.items);
     }
     /*=====START call MOCK videos=====*/
@@ -60,7 +68,12 @@ function HomePage() {
       <Container fluid>
         <Row>
           <Col sm={12}>
-            <h4 className={userContextVal.theme ? "blue_theme" : "discreet_theme"}>Welcome and wonderful {day}! Enjoy your "{userContextVal.search}" videos...</h4>
+            <h4
+              className={userContextVal.theme ? 'blue_theme' : 'discreet_theme'}
+            >
+              Welcome and wonderful {day}! Enjoy your "{userContextVal.search}"
+              videos...
+            </h4>
           </Col>
         </Row>
         {videos ? (
@@ -79,9 +92,7 @@ function HomePage() {
                   description={vid.snippet.description}
                   img={vid.snippet.thumbnails.high.url}
                   mini={false}
-                  onClick={() =>
-                    history.push(`/watch-video/${vid.id.videoId}`)
-                  }
+                  onClick={() => history.push(`/watch-video/${vid.id.videoId}`)}
                 />
               </Col>
             ))}
@@ -89,7 +100,15 @@ function HomePage() {
         ) : (
           /*Show some placeholder meanwhile no videos retrieved*/
           <Row>
-            <Col sm={12}><p className={userContextVal.theme ? "blue_theme" : "discreet_theme"}>Getting videos fresh from the oven...!</p></Col>
+            <Col sm={12}>
+              <p
+                className={
+                  userContextVal.theme ? 'blue_theme' : 'discreet_theme'
+                }
+              >
+                Getting videos fresh from the oven...!
+              </p>
+            </Col>
           </Row>
         )}
       </Container>

@@ -14,19 +14,27 @@ function FavouritesPage() {
   const history = useHistory();
   const sectionRef = useRef(null);
   const storedFavourites = JSON.parse(localStorage.getItem('favourites'));
-  const {theme} = useContext(UserContext);
+  const { theme } = useContext(UserContext);
 
   //If there is ANY favourite video...
-  if (storedFavourites) 
-    var queryFavVidString = storedFavourites.join();
+  if (storedFavourites) var queryFavVidString = storedFavourites.join();
 
   //GET FAVOURITE videos information from YT API...
-  const params = {maxResults: null, part: 'snippet', type: null, q: null, id: queryFavVidString};
-  const { response } = useYoutubeApi('https://www.xgoogleapis.com/youtube/v3/videos', params);
+  const params = {
+    maxResults: null,
+    part: 'snippet',
+    type: null,
+    q: null,
+    id: queryFavVidString,
+  };
+  const { response } = useYoutubeApi(
+    'https://www.xgoogleapis.com/youtube/v3/videos',
+    params
+  );
   const [videos, setVideos] = useState(null);
 
   useEffect(() => {
-    if(response){
+    if (response) {
       setVideos(response.data.items);
     }
   }, [response]);
@@ -40,7 +48,9 @@ function FavouritesPage() {
       <Container fluid>
         <Row>
           <Col sm={12}>
-            <h2 className={theme ? "blue_theme" : "discreet_theme"}>Favourites</h2>
+            <h2 className={theme ? 'blue_theme' : 'discreet_theme'}>
+              Favourites
+            </h2>
           </Col>
         </Row>
         {videos ? (
@@ -69,7 +79,11 @@ function FavouritesPage() {
         ) : (
           /*Show some placeholder meanwhile no videos retrieved*/
           <Row>
-            <Col sm={12}><p className={theme ? "blue_theme" : "discreet_theme"}>You don't have any favourite video :(!</p></Col>
+            <Col sm={12}>
+              <p className={theme ? 'blue_theme' : 'discreet_theme'}>
+                You don't have any favourite video :(!
+              </p>
+            </Col>
           </Row>
         )}
       </Container>

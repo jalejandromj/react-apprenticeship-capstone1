@@ -45,7 +45,7 @@ function WatchFavouritePage() {
   const [relatedVideos, setRelatedVideos] = useState();
   const [videoDetails, setVideoDetails] = useState(null); //Call the API for the details...
   const [stateVideoId, setStateVideoId] = useState(null);
-  const {theme} = useContext(UserContext);
+  const { theme } = useContext(UserContext);
 
   useEffect(() => {
     if (stateVideoId) videoId = stateVideoId;
@@ -119,7 +119,9 @@ function WatchFavouritePage() {
         <RelatedVideos>
           <Row>
             <Col sm={12}>
-              <h4 className={theme ? "blue_theme" : "discreet_theme"}>Other Favourites</h4>
+              <h4 className={theme ? 'blue_theme' : 'discreet_theme'}>
+                Other Favourites
+              </h4>
             </Col>
           </Row>
           {relatedVideos ? (
@@ -150,17 +152,23 @@ function WatchFavouritePage() {
             <>
               <Row>
                 <Col sm={12}>
-                  <h2 className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.title}</h2>
+                  <h2 className={theme ? 'blue_theme' : 'discreet_theme'}>
+                    {videoDetails.snippet.title}
+                  </h2>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <p className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.description}</p>
+                  <p className={theme ? 'blue_theme' : 'discreet_theme'}>
+                    {videoDetails.snippet.description}
+                  </p>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <h4 className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.channelTitle}</h4>
+                  <h4 className={theme ? 'blue_theme' : 'discreet_theme'}>
+                    {videoDetails.snippet.channelTitle}
+                  </h4>
                 </Col>
               </Row>
             </>
