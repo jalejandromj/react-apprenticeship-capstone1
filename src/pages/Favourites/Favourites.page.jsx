@@ -69,7 +69,7 @@ function FavouritesPage() {
                   description={vid.snippet.description}
                   img={vid.snippet.thumbnails.high.url}
                   mini={false}
-                  onClick={(e) =>
+                  onClick={() =>
                     history.push(`/favourites/watch-video/${vid.id}`)
                   }
                 />
@@ -81,7 +81,7 @@ function FavouritesPage() {
           <Row>
             <Col sm={12}>
               <p className={theme ? 'blue_theme' : 'discreet_theme'}>
-                You don't have any favourite video :(!
+                You do not have any favourite video :(!
               </p>
             </Col>
           </Row>

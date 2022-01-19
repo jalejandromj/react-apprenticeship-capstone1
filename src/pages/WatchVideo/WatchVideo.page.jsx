@@ -60,7 +60,7 @@ function isAlreadyFav(currentVid) {
   }
 }
 
-function WatchVideoPage(props) {
+function WatchVideoPage() {
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated } = useAuth();
@@ -192,7 +192,7 @@ function WatchVideoPage(props) {
                       <VideoCard
                         name={vid.snippet.title}
                         img={vid.snippet.thumbnails.default.url}
-                        onClick={(e) => {
+                        onClick={() => {
                           setStateVideoId(vid.id.videoId);
                         }}
                         mini
@@ -214,14 +214,14 @@ function WatchVideoPage(props) {
                     favVideo ? (
                       <Button
                         variant="secondary"
-                        onClick={(e) => removeFavourite(stateVideoId)}
+                        onClick={() => removeFavourite(stateVideoId)}
                       >
                         Un-favourite
                       </Button>
                     ) : (
                       <Button
                         variant="secondary"
-                        onClick={(e) => setFavourite(stateVideoId)}
+                        onClick={() => setFavourite(stateVideoId)}
                       >
                         Favourite
                       </Button>

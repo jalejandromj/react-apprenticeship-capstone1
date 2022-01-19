@@ -133,7 +133,7 @@ function WatchFavouritePage() {
                       <VideoCard
                         name={vid.snippet.title}
                         img={vid.snippet.thumbnails.default.url}
-                        onClick={(e) => {
+                        onClick={() => {
                           setStateVideoId(vid.id);
                         }}
                         mini
