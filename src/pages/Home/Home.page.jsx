@@ -36,7 +36,7 @@ function HomePage() {
     q: userContextVal.search,
   };
   const { response } = useYoutubeApi(
-    'https://www.xgoogleapis.com/youtube/v3/search',
+    'https://www.googleapis.com/youtube/v3/search',
     params
   );
   const [videos, setVideos] = useState(null);
@@ -69,10 +69,9 @@ function HomePage() {
         <Row>
           <Col sm={12}>
             <h4
-              className={userContextVal.theme ? 'blue_theme' : 'discreet_theme'}
+              className={userContextVal.theme ? 'blue-theme' : 'discreet-theme'}
             >
-              Welcome and wonderful {day}! Enjoy your {userContextVal.search}
-              videos...
+              Welcome and wonderful {day}! Enjoy your videos...
             </h4>
           </Col>
         </Row>
@@ -103,7 +102,7 @@ function HomePage() {
             <Col sm={12}>
               <p
                 className={
-                  userContextVal.theme ? 'blue_theme' : 'discreet_theme'
+                  userContextVal.theme ? 'blue-theme' : 'discreet-theme'
                 }
               >
                 Getting videos fresh from the oven...!

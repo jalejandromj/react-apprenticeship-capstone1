@@ -28,7 +28,7 @@ function FavouritesPage() {
     id: queryFavVidString,
   };
   const { response } = useYoutubeApi(
-    'https://www.xgoogleapis.com/youtube/v3/videos',
+    'https://www.googleapis.com/youtube/v3/videos',
     params
   );
   const [videos, setVideos] = useState(null);
@@ -48,7 +48,7 @@ function FavouritesPage() {
       <Container fluid>
         <Row>
           <Col sm={12}>
-            <h2 className={theme ? 'blue_theme' : 'discreet_theme'}>
+            <h2 className={theme ? 'blue-theme' : 'discreet-theme'}>
               Favourites
             </h2>
           </Col>
@@ -80,7 +80,7 @@ function FavouritesPage() {
           /*Show some placeholder meanwhile no videos retrieved*/
           <Row>
             <Col sm={12}>
-              <p className={theme ? 'blue_theme' : 'discreet_theme'}>
+              <p className={theme ? 'blue-theme' : 'discreet-theme'}>
                 You do not have any favourite video :(!
               </p>
             </Col>

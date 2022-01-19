@@ -178,7 +178,7 @@ function WatchVideoPage() {
         <RelatedVideos>
           <Row>
             <Col sm={12}>
-              <h4 className={theme ? 'blue_theme' : 'discreet_theme'}>
+              <h4 className={theme ? 'blue-theme' : 'discreet-theme'}>
                 Related videos
               </h4>
             </Col>
@@ -234,21 +234,21 @@ function WatchVideoPage() {
             <>
               <Row>
                 <Col sm={12}>
-                  <h2 className={theme ? 'blue_theme' : 'discreet_theme'}>
+                  <h2 className={theme ? 'blue-theme' : 'discreet-theme'}>
                     {videoDetails.snippet.title}
                   </h2>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <p className={theme ? 'blue_theme' : 'discreet_theme'}>
+                  <p className={theme ? 'blue-theme' : 'discreet-theme'}>
                     {videoDetails.snippet.description}
                   </p>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <h4 className={theme ? 'blue_theme' : 'discreet_theme'}>
+                  <h4 className={theme ? 'blue-theme' : 'discreet-theme'}>
                     {videoDetails.snippet.channelTitle}
                   </h4>
                 </Col>

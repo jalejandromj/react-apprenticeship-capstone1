@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router';
 
 import { useAuth } from '../../providers/Auth';
 import loginApi from './login.api.js';
+import UserContext from '../../state/UserContext';
 import './Login.styles.css';
 
 function LoginPage() {
   const { login } = useAuth();
   const history = useHistory();
   const [errorLogIn, setErrorLogIn] = useState(false);
+  const { theme } = useContext(UserContext);
 
   async function authenticate(event) {
     event.preventDefault();
@@ -30,7 +32,7 @@ function LoginPage() {
 
   return (
     <section className="login">
-      <h1>Welcome back!</h1>
+      <h1 className={theme ? 'blue-theme' : 'discreet-theme'}>Welcome back!</h1>
       <form onSubmit={authenticate} className="login-form">
         <div className="form-group">
           <label htmlFor="username">

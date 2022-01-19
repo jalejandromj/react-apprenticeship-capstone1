@@ -31,14 +31,14 @@ function Layout({ children }) {
   return (
     <div
       id="layout"
-      className={displaySidebar ? `sidebar_display` : `sidebar_hidden`}
+      className={displaySidebar ? `sidebar-display` : `sidebar-hidden`}
     >
-      <div id="header" className={checked ? 'blue_theme' : 'discreet_theme'}>
+      <div id="header" className={checked ? 'blue-theme' : 'discreet-theme'}>
         <Container fluid>
           <Row>
             <Col sm={2} md={1} style={{ justifyContent: 'center' }}>
               <figure
-                className={checked ? 'blue_theme' : 'discreet_theme'}
+                className={checked ? 'blue-theme' : 'discreet-theme'}
                 onClick={() => setDisplaySidebar(!displaySidebar)}
               >
                 <MenuSVG />
@@ -47,7 +47,7 @@ function Layout({ children }) {
             <Col sm={6} md={8} style={{ alignItems: 'center' }}>
               <Form style={{ width: '100%' }} onSubmit={handleSearchSubmit}>
                 <InputGroup
-                  className={checked ? 'blue_theme' : 'discreet_theme'}
+                  className={checked ? 'blue-theme' : 'discreet-theme'}
                 >
                   <Form.Control
                     placeholder="tampico alien mapaches"
@@ -71,9 +71,9 @@ function Layout({ children }) {
               style={{ alignItems: 'center', justifyContent: 'center' }}
             >
               <Button
-                id="theme_selector"
+                id="theme-selector"
                 variant={`outline-secondary ${
-                  checked ? 'blue_theme' : 'discreet_theme'
+                  checked ? 'blue-theme' : 'discreet-theme'
                 }`}
                 onClick={() => userContextVal.setTheme(!checked)}
               ></Button>
@@ -106,22 +106,22 @@ function Layout({ children }) {
         </Container>
       </div>
       {displaySidebar ? (
-        <div id="sidebar" className={checked ? 'blue_theme' : 'discreet_theme'}>
+        <div id="sidebar" className={checked ? 'blue-theme' : 'discreet-theme'}>
           <Container fluid>
             <Row>
               <Col
                 sm={12}
-                className="sidebar_col"
+                className="sidebar-col"
                 onClick={() => history.push(`/`)}
               >
-                <button className="sidebar_btn">Home</button>
+                <button className="sidebar-btn">Home</button>
               </Col>
             </Row>
             {authenticated ? (
               <Row>
-                <Col sm={12} className="sidebar_col">
+                <Col sm={12} className="sidebar-col">
                   <button
-                    className="sidebar_btn"
+                    className="sidebar-btn"
                     onClick={() => history.push(`/favourites`)}
                   >
                     Favourites
@@ -130,21 +130,21 @@ function Layout({ children }) {
               </Row>
             ) : null}
             <Row>
-              <Col sm={12} className="sidebar_col">
-                <button className="sidebar_btn">Music</button>
+              <Col sm={12} className="sidebar-col">
+                <button className="sidebar-btn">Music</button>
               </Col>
             </Row>
             <Row>
-              <Col sm={12} className="sidebar_col">
-                <button className="sidebar_btn">Sports</button>
+              <Col sm={12} className="sidebar-col">
+                <button className="sidebar-btn">Sports</button>
               </Col>
             </Row>
           </Container>
         </div>
       ) : null}
       <main
-        className={`main_container ${
-          checked ? 'blue_theme' : 'discreet_theme'
+        className={`main-container ${
+          checked ? 'blue-theme' : 'discreet-theme'
         }`}
       >
         {children}
