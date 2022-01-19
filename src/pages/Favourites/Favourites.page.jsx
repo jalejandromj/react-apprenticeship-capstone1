@@ -1,45 +1,35 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import useYoutubeApi from '../../utils/hooks/useYoutubeApi';
+import UserContext from '../../state/UserContext';
 import './Favourites.styles.css';
 import VideoCard from '../../components/VideoCard';
 
 function FavouritesPage() {
   const history = useHistory();
   const sectionRef = useRef(null);
-  const [videos, setVideos] = useState(null);
   const storedFavourites = JSON.parse(localStorage.getItem('favourites'));
+  const {theme} = useContext(UserContext);
+
+  //If there is ANY favourite video...
+  if (storedFavourites) 
+    var queryFavVidString = storedFavourites.join();
+
+  //GET FAVOURITE videos information from YT API...
+  const params = {maxResults: null, part: 'snippet', type: null, q: null, id: queryFavVidString};
+  const { response } = useYoutubeApi('https://www.xgoogleapis.com/youtube/v3/videos', params);
+  const [videos, setVideos] = useState(null);
 
   useEffect(() => {
-    console.log(storedFavourites);
-    if (storedFavourites) {
-      //If there is ANY favourite video...
-      let queryFavVidString = storedFavourites.join();
-      console.log('[EXEC] GET favourite videos...');
-      axios
-        .get('https://www.googleapis.com/youtube/v3/videos', {
-          params: {
-            key: process.env.REACT_APP_YT_API_KEY,
-            part: 'snippet',
-            id: queryFavVidString,
-          },
-        })
-        .then(function (response) {
-          // handle success
-          console.log('[SUCCESS] Favourite Videos retrieved...', response);
-          setVideos(response.data.items);
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        });
+    if(response){
+      setVideos(response.data.items);
     }
-  }, []);
+  }, [response]);
 
   return (
     <section
@@ -50,7 +40,7 @@ function FavouritesPage() {
       <Container fluid>
         <Row>
           <Col sm={12}>
-            <h2>Favourites</h2>
+            <h2 className={theme ? "blue_theme" : "discreet_theme"}>Favourites</h2>
           </Col>
         </Row>
         {videos ? (
@@ -79,7 +69,7 @@ function FavouritesPage() {
         ) : (
           /*Show some placeholder meanwhile no videos retrieved*/
           <Row>
-            <Col sm={12}>You don't have any favourite video!</Col>
+            <Col sm={12}><p className={theme ? "blue_theme" : "discreet_theme"}>You don't have any favourite video :(!</p></Col>
           </Row>
         )}
       </Container>

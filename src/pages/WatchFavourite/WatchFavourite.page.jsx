@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import UserContext from '../../state/UserContext';
 import VideoCard from '../../components/VideoCard';
 
 const WatchVideoPageLayout = styled.div`
@@ -44,6 +45,7 @@ function WatchFavouritePage() {
   const [relatedVideos, setRelatedVideos] = useState();
   const [videoDetails, setVideoDetails] = useState(null); //Call the API for the details...
   const [stateVideoId, setStateVideoId] = useState(null);
+  const {theme} = useContext(UserContext);
 
   useEffect(() => {
     if (stateVideoId) videoId = stateVideoId;
@@ -115,6 +117,11 @@ function WatchFavouritePage() {
           />
         </div>
         <RelatedVideos>
+          <Row>
+            <Col sm={12}>
+              <h4 className={theme ? "blue_theme" : "discreet_theme"}>Other Favourites</h4>
+            </Col>
+          </Row>
           {relatedVideos ? (
             relatedVideos.map((vid) => {
               if (vid.snippet) {
@@ -143,17 +150,17 @@ function WatchFavouritePage() {
             <>
               <Row>
                 <Col sm={12}>
-                  <h2>{videoDetails.snippet.title}</h2>
+                  <h2 className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.title}</h2>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <p>{videoDetails.snippet.description}</p>
+                  <p className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.description}</p>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <h4>{videoDetails.snippet.channelTitle}</h4>
+                  <h4 className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.channelTitle}</h4>
                 </Col>
               </Row>
             </>

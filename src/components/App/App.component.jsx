@@ -38,7 +38,8 @@ function App() {
   }, []);
 
   const userContextVal = useContext(UserContext);
-  const [search, setSearch] = React.useState();
+  const [search, setSearch] = React.useState(userContextVal.search);
+  const [theme, setTheme] = React.useState(userContextVal.theme);
 
   return (
     <BrowserRouter data-testid="app">
@@ -47,6 +48,8 @@ function App() {
           value={{
             name: userContextVal.name,
             search: search,
+            theme: theme,
+            setTheme: setTheme,
             setSearch: setSearch,
           }}
         >

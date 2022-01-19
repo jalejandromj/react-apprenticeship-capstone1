@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import VideoCard from '../../components/VideoCard';
 
 import { useAuth } from '../../providers/Auth';
+import UserContext from '../../state/UserContext';
 
 const WatchVideoPageLayout = styled.div`
   display: grid;
@@ -68,6 +69,7 @@ function WatchVideoPage(props) {
   const [relatedVideos, setRelatedVideos] = useState();
   const [videoDetails, setVideoDetails] = useState(null); //Call the API for the details...
   const [favVideo, setFavVideo] = useState(false);
+  const {theme} = useContext(UserContext);
 
   useEffect(() => {
     if (videoId !== stateVideoId) {
@@ -174,6 +176,11 @@ function WatchVideoPage(props) {
           />
         </div>
         <RelatedVideos>
+          <Row>
+            <Col sm={12}>
+              <h4 className={theme ? "blue_theme" : "discreet_theme"}>Related videos</h4>
+            </Col>
+          </Row>
           {relatedVideos ? (
             relatedVideos.map((vid) => {
               if (vid.snippet) {
@@ -225,17 +232,17 @@ function WatchVideoPage(props) {
             <>
               <Row>
                 <Col sm={12}>
-                  <h2>{videoDetails.snippet.title}</h2>
+                  <h2 className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.title}</h2>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <p>{videoDetails.snippet.description}</p>
+                  <p className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.description}</p>
                 </Col>
               </Row>
               <Row>
                 <Col sm={12}>
-                  <h4>{videoDetails.snippet.channelTitle}</h4>
+                  <h4 className={theme ? "blue_theme" : "discreet_theme"}>{videoDetails.snippet.channelTitle}</h4>
                 </Col>
               </Row>
             </>
