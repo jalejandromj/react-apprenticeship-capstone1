@@ -12,8 +12,6 @@ import WatchVideoPage from '../../pages/WatchVideo';
 import WatchFavouritePage from '../../pages/WatchFavourite';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
-import Private from '../Private';
 import Fortune from '../Fortune';
 import Layout from '../Layout';
 //import { random } from '../../utils/fns';
@@ -74,9 +72,6 @@ function App() {
                 path="/favourites/watch-video/:videoId"
                 exact
               />
-              <Private exact path="/secret">
-                <SecretPage />
-              </Private>
               <Route path="*">
                 <NotFound />
               </Route>
