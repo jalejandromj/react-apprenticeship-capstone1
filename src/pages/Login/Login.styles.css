@@ -1,5 +1,12 @@
+input {
+  color: black !important;
+}
+
 .login {
-  width: 300px;
+  width: 40%;
+  padding: 3%;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 55%);
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 50%);
 }
 
 .login h1 {
